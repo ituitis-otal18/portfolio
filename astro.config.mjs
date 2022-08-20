@@ -6,10 +6,5 @@ import image from '@astrojs/image';
 export default defineConfig({
     output: 'server',
     adapter: netlify(),
-    vite: {
-        ssr: {
-            external: ['svgo'],
-        },
-    },
     integrations: [image()],
 });
