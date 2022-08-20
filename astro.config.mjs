@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-import netlify from '@astrojs/netlify/functions';
+import netlify from '@astrojs/netlify/edge-functions';
 import image from '@astrojs/image';
 
 // https://astro.build/config
@@ -9,6 +9,7 @@ export default defineConfig({
     vite: {
         ssr: {
             external: ['svgo'],
+            noExternal: true
         },
     },
     integrations: [image()],
