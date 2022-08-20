@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 import netlify from '@astrojs/netlify/functions';
-import image from '@astrojs/image';
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,5 +10,4 @@ export default defineConfig({
             external: ['svgo']
         },
     },
-    integrations: [image()],
 });
