@@ -1,10 +1,15 @@
 import { defineConfig } from 'astro/config';
-import netlify from '@astrojs/netlify/edge-functions';
+import netlify from '@astrojs/netlify/functions';
 import image from '@astrojs/image';
 
 // https://astro.build/config
 export default defineConfig({
     output: 'server',
     adapter: netlify(),
+    vite: {
+        ssr: {
+            external: ['svgo'],
+        },
+    },
     integrations: [image()],
 });
