@@ -1,0 +1,75 @@
+---
+import {Icon} from "astro-icon";
+import Card from "../components/Card.astro";
+---
+
+<div class="contact">
+    <Card title="Contact me">
+        <ul class="socials">
+            <li class="text-gradient">
+                <a href="https://www.linkedin.com/in/hakan-tugrul-otal/" target="_blank">
+                    <Icon class="icon" name="linkedin"/>
+                    LinkedIn
+                </a>
+            </li>
+            <li class="text-gradient">
+                <a href="https://github.com/ituitis-otal18" target="_blank">
+                    <Icon class="icon" name="github"/>
+                    Github
+                </a>
+            </li>
+            <li class="text-gradient">
+                <a href="mailto:hakan.otal@outlook.com">
+                    <Icon class="icon" name="mail"/>
+                    hakan.otal@outlook.com
+                </a>
+            </li>
+            <li class="text-gradient">
+                <a href="tel:+90537-947-6757">
+                    <Icon class="icon" name="phone"/>
+                    +905379476757
+                </a>
+            </li>
+        </ul>
+    </Card>
+</div>
+
+
+<style>
+    .contact {
+		position: fixed;
+        right: 0;
+        padding: 2em;
+	}
+
+    .socials {
+        list-style: none;
+    }
+
+    .icon {
+		height: 16px;
+		color: black;
+	}
+
+    .text-gradient {
+		font-weight: 900;
+		background-image: var(--astro-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 100% 200%;
+		background-position-y: 100%;
+		border-radius: 0.4rem;
+		animation: pulse 4s ease-in-out infinite;
+	}
+
+	@keyframes pulse {
+		0%,
+		100% {
+			background-position-y: 0%;
+		}
+		50% {
+			background-position-y: 80%;
+		}
+	}
+
+</style>
