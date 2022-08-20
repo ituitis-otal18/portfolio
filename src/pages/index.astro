@@ -12,34 +12,36 @@ import Socials from "../components/Socials.astro";
 ---
 
 <Layout title="Hakan Tugrul Otal">
-	<Photo/>
-	<Socials/>
-	<main>
-		<h1>Hi! I'm <span class="text-gradient">Hakan</span> 👋🏻</h1>
-		<p class="instructions">
-			<span>&rarr;</span> I'm currently studying Computer Engineering at Istanbul Technical University. I try to expand my knowledge on different technologies and subjects. My life goal is try to learn everything about something and something about everything.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card title="Experience">
-				<Experience />
-			</Card>
-			<Card title="Education">
-				<Education />
-			</Card>
-			<Card title="Licences & Certificates">
-				<Licences />
-			</Card>
-			<Card title="Languages">
-				<Languages />
-			</Card>
-			<Card title="Skills">
-				<Skills />
-			</Card>
-			<Card title="Interests">
-				<Interests />
-			</Card>
-		</ul>
-	</main>
+	<div class="container">
+		<Photo/>
+		<main>
+			<h1>Hi! I'm <span class="text-gradient">Hakan</span> 👋🏻</h1>
+			<p class="instructions">
+				<span>&rarr;</span> I'm currently studying Computer Engineering at Istanbul Technical University. I try to expand my knowledge on different technologies and subjects. My life goal is try to learn everything about something and something about everything.
+			</p>
+			<ul role="list" class="link-card-grid">
+				<Card title="Experience">
+					<Experience />
+				</Card>
+				<Card title="Education">
+					<Education />
+				</Card>
+				<Card title="Licences & Certificates">
+					<Licences />
+				</Card>
+				<Card title="Languages">
+					<Languages />
+				</Card>
+				<Card title="Skills">
+					<Skills />
+				</Card>
+				<Card title="Interests">
+					<Interests />
+				</Card>
+			</ul>
+		</main>
+		<Socials/>
+	</div>
 </Layout>
 
 <style>
@@ -51,10 +53,16 @@ import Socials from "../components/Socials.astro";
 		margin: 2rem 0;
 	}
 
+	.container {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
 	main {
 		margin: auto;
 		padding: 1em;
-		max-width: 60ch;
+		max-width: 65ch;
 	}
 
 	.instructions {
@@ -71,5 +79,26 @@ import Socials from "../components/Socials.astro";
 
 		gap: 1rem;
 		padding: 0;
+	}
+
+	.text-gradient {
+		font-weight: 900;
+		background-image: var(--astro-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 100% 200%;
+		background-position-y: 100%;
+		border-radius: 0.4rem;
+		animation: pulse 4s ease-in-out infinite;
+	}
+
+	@keyframes pulse {
+		0%,
+		100% {
+			background-position-y: 0%;
+		}
+		50% {
+			background-position-y: 80%;
+		}
 	}
 </style>
