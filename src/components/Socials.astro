@@ -1,5 +1,5 @@
 ---
-import {Icon} from "astro-icon";
+import { Icon } from "astro-icon";
 import Card from "../components/Card.astro";
 ---
 
@@ -7,26 +7,29 @@ import Card from "../components/Card.astro";
     <Card title="Contact me">
         <ul class="socials">
             <li class="text-gradient">
-                <a href="https://www.linkedin.com/in/hakan-tugrul-otal/" target="_blank">
-                    <Icon class="icon" name="linkedin"/>
+                <a
+                    href="https://www.linkedin.com/in/hakan-tugrul-otal/"
+                    target="_blank"
+                >
+                    <Icon class="icon" name="linkedin" />
                     LinkedIn
                 </a>
             </li>
             <li class="text-gradient">
                 <a href="https://github.com/ituitis-otal18" target="_blank">
-                    <Icon class="icon" name="github"/>
+                    <Icon class="icon" name="github" />
                     Github
                 </a>
             </li>
             <li class="text-gradient">
                 <a href="mailto:hakan.otal@outlook.com">
-                    <Icon class="icon" name="mail"/>
+                    <Icon class="icon" name="mail" />
                     hakan.otal@outlook.com
                 </a>
             </li>
             <li class="text-gradient">
                 <a href="tel:+90537-947-6757">
-                    <Icon class="icon" name="phone"/>
+                    <Icon class="icon" name="phone" />
                     +905379476757
                 </a>
             </li>
@@ -34,43 +37,38 @@ import Card from "../components/Card.astro";
     </Card>
 </div>
 
-
 <style>
     .contact {
-        margin: auto;
-        margin-top: 4em;
-        margin-bottom: 4em;
-        top: 25%;
-	}
+        margin: 4em auto;
+    }
 
     .socials {
         list-style: none;
     }
 
     .icon {
-		height: 16px;
-		color: black;
-	}
+        height: 16px;
+        color: black;
+    }
 
     .text-gradient {
-		font-weight: 900;
-		background-image: var(--astro-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 100% 200%;
-		background-position-y: 100%;
-		border-radius: 0.4rem;
-		animation: pulse 4s ease-in-out infinite;
-	}
+        font-weight: 900;
+        background-image: var(--astro-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 100% 200%;
+        background-position-y: 100%;
+        border-radius: 0.4rem;
+        animation: pulse 4s ease-in-out infinite;
+    }
 
-	@keyframes pulse {
-		0%,
-		100% {
-			background-position-y: 0%;
-		}
-		50% {
-			background-position-y: 80%;
-		}
-	}
-
+    @keyframes pulse {
+        0%,
+        100% {
+            background-position-y: 0%;
+        }
+        50% {
+            background-position-y: 80%;
+        }
+    }
 </style>
