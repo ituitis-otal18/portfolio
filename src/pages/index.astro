@@ -1,6 +1,7 @@
 ---
 import Card from "../components/Card.astro";
 import Photo from "../components/Photo.astro";
+import ScrollTop from "../components/ScrollTop.astro";
 import Slideshow from "../components/Slideshow.astro";
 import Socials from "../components/Socials.astro";
 import Education from "../contents/Education.astro";
@@ -13,7 +14,7 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Hakan Tugrul Otal">
-	<div class="container">
+	<div id="top" class="container">
 		<main>
 			<h1>Hi! I'm <span class="text-gradient">Hakan</span> 👋🏻</h1>
 			<p class="instructions">
@@ -49,6 +50,7 @@ import Layout from "../layouts/Layout.astro";
 		<div class="sidebar">
 			<Photo />
 			<Socials />
+			<ScrollTop/>
 		</div>
 	</div>
 </Layout>
