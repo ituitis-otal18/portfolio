@@ -1,20 +1,44 @@
 ---
+import { Icon } from "astro-icon";
+
+
+const response = await fetch('https://api.github.com/graphql', {
+    method: 'post',
+    headers: {
+        Authorization: 'Bearer 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',
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+        query: '{  user(login: "ituitis-otal18") { pinnedItems(first: 6, types: REPOSITORY) { nodes { ... on RepositoryInfo {name, url, description}}}}}',
+    }),
+});
+const data = await response.json();
+const repos = data.data.user.pinnedItems.nodes;
 ---
 
 <div class="slider">
     <div class="slides">
-        <div id="slide-1">1</div>
-        <div id="slide-2">2</div>
-        <div id="slide-3">3</div>
-        <div id="slide-4">4</div>
-        <div id="slide-5">5</div>
+        {
+            repos.map((r) => (
+                <div class="repo" id={"repo-"+repos.indexOf(r)}>
+                    <h3 class="text-gradient">{r.name}</h3>
+                    <hr>
+                    <p>{r.description}</p>
+                    <a href={r.url} target="_blank">
+                        <Icon class="icon" name="github" />
+                        Github Repository
+                    </a>
+                </div>
+            ))
+        }
     </div>
 
-    <a href="#slide-1">1</a>
-    <a href="#slide-2">2</a>
-    <a href="#slide-3">3</a>
-    <a href="#slide-4">4</a>
-    <a href="#slide-5">5</a>
+    <a href="#repo-0">&bull;</a>
+    <a href="#repo-1">&bull;</a>
+    <a href="#repo-2">&bull;</a>
+    <a href="#repo-3">&bull;</a>
+    <a href="#repo-4">&bull;</a>
+    <a href="#repo-5">&bull;</a>
 </div>
 
 <style>
@@ -62,10 +86,9 @@
         transition: transform 0.5s;
         position: relative;
 
-        display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 100px;
+        padding: 10px;
     }
 
     .slider > a {
@@ -92,6 +115,42 @@
     @supports (scroll-snap-type) {
         .slider > a {
             display: none;
+        }
+    }
+
+    .repo {
+        display: inline;
+        font-size: large;
+    }
+
+    .repo > a {
+        text-decoration: none;
+        color: #56a9f7;
+    }
+
+    .icon {
+        height: 16px;
+        color: #444;
+    }
+
+    .text-gradient {
+        font-weight: 900;
+        background-image: var(--astro-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 100% 200%;
+        background-position-y: 100%;
+        border-radius: 0.4rem;
+        animation: pulse 4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+        0%,
+        100% {
+            background-position-y: 0%;
+        }
+        50% {
+            background-position-y: 80%;
         }
     }
 </style>
